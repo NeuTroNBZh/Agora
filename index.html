@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Agora Retake - Serveur CS:2 | Jouez et rejoignez notre communauté</title>
+    <link rel="icon" href="Photos/icon_agora.ico" type="image/x-icon">
+    <meta name="description" content="Rejoignez Agora Retake, un serveur CS:2 pour des parties dynamiques et immersives. Connectez-vous ou découvrez notre communauté Discord !">
+    <meta name="keywords" content="Agora Retake, CS:2, serveur, Counter-Strike, Discord, Skin Changer, Agora CS, Agora Counter Strike, Counter-Strike: Global Offensive">
+    <link rel="canonical" href="https://agora-retake.fr/">
+</head>
+<body>
+    <div class="main-content">
+    <div class="top-containers">
+        <div class="container">
+            <div class="server-image">
+                <img src="/Photos/2.png" alt="Serveur Agora Retake pour Counter-Strike 2, dynamique et immersif" id="serverImage" loading="lazy">
+            </div>
+            
+            <div class="additional-buttons">
+                <a href="skinchanger/index.php" class="button">Skin Changer</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="server-image">
+                <img src="Photos/DISCORD_1.png" alt="Serveur Agora Retake pour Counter-Strike 2, dynamique et immersif" id="serverImage" loading="lazy">
+            </div>
+
+            <div class="additional-buttons">
+                <a href="https://discord.gg/uqDBpmRE3m" class="button discord" rel="noopener noreferrer">Serveur Discord</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container2">       
+        <div class="server-image">
+            <img src="Photos/RETAKE_1.png" alt="Serveur Agora Retake pour Counter-Strike 2, dynamique et immersif" id="serverImage" loading="lazy">
+            <div class="server-buttons">
+                <button class="server-button" id="connectButton">Connecter</button>
+                <button class="server-button" id="copyIpButton">Copier IP</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">© 2024 Agora Retake</p>
+            <div class="footer-logos">
+                <a href="https://www.faceit.com/fr/inv/Ope6UVo" target="_blank" rel="noopener noreferrer">
+                    <img src="Photos/FACEIT.svg" alt="Bouton pour rejoindre Faceit" class="footer-logo">
+                </a>
+                <a href="https://steamcommunity.com/groups/Agora_fr" target="_blank" rel="noopener noreferrer">
+                    <img src="Photos/Steam--Streamline-Simple-Icons.svg" alt="Bouton pour rejoindre un groupe Steam" class="footer-logo">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Your existing JavaScript remains the same
+        const serverIp = '79.127.196.41:25251';
+
+        document.getElementById('connectButton').addEventListener('click', () => {
+            window.location.href = `steam://connect/${serverIp}`;
+        });
+
+        document.getElementById('copyIpButton').addEventListener('click', () => {
+            const connectCommand = `connect ${serverIp}`;
+            if (navigator.clipboard) {
+            navigator.clipboard.writeText(connectCommand).then(() => {
+                alert('Commande de connexion copiée avec succès !');
+            }).catch(err => {
+                console.error('Erreur lors de la copie de la commande de connexion : ', err);
+            });
+            } else {
+            const textArea = document.createElement('textarea');
+            textArea.value = connectCommand;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                alert('Commande de connexion copiée avec succès !');
+            } catch (err) {
+                console.error('Erreur lors de la copie de la commande de connexion : ', err);
+            }
+            document.body.removeChild(textArea);
+            }
+        });
+    </script>
+</body>
+</html>
